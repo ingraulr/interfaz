@@ -1,0 +1,23 @@
+<p>
+    <strong>Fecha</strong>
+    <%= @chat.fecha %>
+</p>
+
+<p>
+    <strong>Motivo</strong>
+    <%= @chat.motivo %>
+</p>
+
+<p>
+    <strong>Agente</strong>
+    <%= @chat.csr %>
+</p>
+
+<p>
+    <strong>Evaluacion:</strong>
+    <%= @chat.evaluacion %>
+</p>
+
+
+<%= link_to "Editar chat", edit_chat_path, class: 'btn btn-primary btn-lg ' %>
+    <%= link_to  "Listado de Chats", chats_path, class: 'btn btn-info btn-lg ' %>

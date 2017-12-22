@@ -1,0 +1,29 @@
+<p>
+    <strong>Fecha</strong>
+    <%= @call.fecha %>
+</p>
+
+<p>
+    <strong>Hora:</strong>
+    <%= @call.hora %>
+</p>
+
+<p>
+    <strong>RFC:</strong>
+    <%= @call.rfc %>
+</p>
+
+<p>
+    <strong>Motivo:</strong>
+    <%= @call.motivo %>
+</p>
+
+<p>
+    <strong>Agente:</strong>
+    <%= @call.csr %>
+</p>
+
+
+
+<%= link_to "Editar llamada", edit_call_path, class: 'btn btn-primary btn-lg ' %>
+    <%= link_to  "Menu llamadas", calls_path, class: 'btn btn-info btn-lg ' %>

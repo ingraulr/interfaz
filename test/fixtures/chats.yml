@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2017-12-22
+  motivo: MyString
+  csr: MyString
+  evaluacion: MyString
+
+two:
+  fecha: 2017-12-22
+  motivo: MyString
+  csr: MyString
+  evaluacion: MyString

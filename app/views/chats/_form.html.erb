@@ -1,0 +1,68 @@
+<div class="container">
+    <div class='row'>
+        <div class='col-md-12'>
+            <%= form_for(@chat, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+                <% if @chat.errors.any? %>
+                    <div class="panel panel-danger col-md-offset-1">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">
+                                <%= pluralize(@chat.errors.count, "error") %>
+                                    prohibited this article from being saved:
+                            </h2>
+
+                            <div class="panel-body">
+                                <ul>
+                                    <% @chat.errors.full_messages.each do |msg| %>
+                                        <li>
+                                            <%= msg %>
+                                        </li>
+                                        <% end %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                        <div class='form-group'>
+                            <div class='control-label col-md-1'>
+                                <%= f.label :fecha %>
+                            </div>
+                            <div class='col-md-11'>
+                                <%= f.text_field :fecha, class: 'form-control', placeholder: 'Fecha Llamada', autofocus: true %>
+                            </div>
+                        </div>
+                        <div class='form-group'>
+                            <div class='control-label col-md-1'>
+                                <%= f.label :Motivo %>
+                            </div>
+                            <div class='col-md-11'>
+                                <%= f.text_field :motivo, class: 'form-control', placeholder: 'Hora de Llamada', autofocus: true %>
+                            </div>
+                        </div>
+                        <div class='form-group'>
+                            <div class='control-label col-md-1'>
+                                <%= f.label :Agente %>
+                            </div>
+                            <div class='col-md-11'>
+                                <%= f.text_field :csr, class: 'form-control', placeholder: 'RFC del cliente', autofocus: true %>
+                            </div>
+                        </div>
+                        <div class='form-group'>
+                            <div class='control-label col-md-1'>
+                                <%= f.label :evaluacion %>
+                            </div>
+                            <div class='col-md-11'>
+                                <%= f.text_area :evaluacion, rows: 10, class: 'form-control', placeholder: 'Motivo de la LLamada' %>
+                            </div>
+                        </div>
+
+
+                        <div class='form-group'>
+                            <div class='col-md-offset-1 col-md-11'>
+                                <%= f.submit ( f.object.new_record? ? "Guardar Nuevo Chat" : "Guardar Chat"), class: "btn btn-primary btn-lg pull-right" %>
+
+                            </div>
+                        </div>
+                        <% end %>
+        </div>
+    </div>
+</div>

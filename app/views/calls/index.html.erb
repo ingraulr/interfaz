@@ -1,0 +1,51 @@
+<h1 class="text-center">
+
+    Listado de Llamadas</h1><br>
+<% if @calls.nil? || @calls.empty? %>
+    <h2 class="text-danger text-center"> No hay registros en el listado </h2>
+    <% else %>
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th> ID</th>
+                    <th> Fecha</th>
+                    <th> Hora</th>
+                    <th class="text-center"> RFC</th>
+                    <th class="text-center"> Motivo</th>
+                    <th class="text-center"> Agente</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @calls.each do |call| %>
+                    <tr>
+                        <td>
+                            <%= link_to call.id, call_path(call) %>
+                        </td>
+                        <td>
+                            <%= call.fecha %>
+                        </td>
+                        <td>
+                            <%= call.hora %>
+                        </td>
+                        <td class="text-center">
+                            <%= call.rfc %>
+                        </td>
+                        <td class="text-center">
+                            <%= call.motivo %>
+                        </td>
+                        <td class="text-center">
+                            <%= call.csr %>
+                        </td>
+
+                        <td>
+                            <%= link_to ' Editar', edit_call_path(call), :class => 'btn btn-xs btn-info ' %>
+                                <%= link_to ' Eliminar', call_path(call),
+                        method: :delete, data: { confirm: 'Seguro que deseas eliminar la llamada?'}, :class => 'btn btn-xs btn-danger ' %>
+                        </td>
+
+                    </tr>
+                    <% end %>
+                        <% end %>
+            </tbody>
+        </table>

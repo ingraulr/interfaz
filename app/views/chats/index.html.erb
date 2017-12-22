@@ -1,0 +1,46 @@
+<h1 class="text-center">
+
+    Listado de Chats</h1><br>
+<% if @chats.nil? || @chats.empty? %>
+    <h2 class="text-danger text-center"> No hay registros en el listado </h2>
+    <% else %>
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th> ID</th>
+                    <th> Fecha </th>
+                    <th class="text-center"> Motivo</th>
+                    <th class="text-center"> Agente</th>
+                    <th class="text-center"> Evaluacion</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @chats.each do |chat| %>
+                    <tr>
+                        <td>
+                            <%= link_to chat.id, chat_path(chat) %>
+                        </td>
+                        <td>
+                            <%= chat.fecha %>
+                        </td>
+                        <td>
+                            <%= chat.motivo %>
+                        </td>
+                        <td class="text-center">
+                            <%= chat.csr %>
+                        </td>
+                        <td class="text-center">
+                            <%= chat.evaluacion %>
+                        </td>
+                        <td>
+                            <%= link_to ' Editar', edit_chat_path(chat), :class => 'btn btn-xs btn-info ' %>
+                                <%= link_to ' Eliminar', chat_path(chat),
+                        method: :delete, data: { confirm: 'Seguro que deseas eliminar el chat?'}, :class => 'btn btn-xs btn-danger ' %>
+                        </td>
+
+                    </tr>
+                    <% end %>
+                        <% end %>
+            </tbody>
+        </table>
